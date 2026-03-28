@@ -1,9 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ── Design tokens ── */
+:root {
+  /* Earth-tone palette */
+  --color-bg:        #f5f0eb;   /* warm off-white */
+  --color-surface:   #ede6dc;   /* parchment */
+  --color-border:    #d4c9b8;   /* tan */
+  --color-text:      #2e2a24;   /* dark bark */
+  --color-muted:     #7a6e61;   /* warm grey-brown */
+
+  /* Accent */
+  --color-accent:    #c97a3a;   /* burnt sienna / warm orange */
+  --color-accent-lt: #e8a96a;   /* lighter tint for hover states */
+  --color-accent-bg: rgba(201, 122, 58, 0.10); /* subtle tinted fill */
+}
+
+/* ── Base ── */
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +27,37 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background: #fff;
-  color: #111;
+  font-family: 'Merriweather', Georgia, serif;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
+
+/* ── Typography utility classes ── */
+
+/* Primary serif — Merriweather */
+.font-primary {
+  font-family: 'Merriweather', Georgia, serif;
+}
+
+/* Accent serif — Cormorant Garamond */
+.font-accent {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Accent italic */
+.font-accent-italic {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+}
+
+/* ── Accent color utilities ── */
+.text-accent        { color: var(--color-accent); }
+.text-accent-lt     { color: var(--color-accent-lt); }
+.bg-accent          { background-color: var(--color-accent); }
+.bg-accent-lt       { background-color: var(--color-accent-lt); }
+.bg-accent-subtle   { background-color: var(--color-accent-bg); }
+.border-accent      { border-color: var(--color-accent); }
+.hover\:text-accent:hover     { color: var(--color-accent); }
+.hover\:text-accent-lt:hover  { color: var(--color-accent-lt); }
+.hover\:bg-accent:hover       { background-color: var(--color-accent); }
+.hover\:border-accent:hover   { border-color: var(--color-accent); }

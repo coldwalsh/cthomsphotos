@@ -6,20 +6,58 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        earth: {
+          bg:      '#f5f0eb',
+          surface: '#ede6dc',
+          border:  '#d4c9b8',
+          text:    '#2e2a24',
+          muted:   '#7a6e61',
+          dark:    '#1c1814',
+        },
+        accent: {
+          DEFAULT: '#c97a3a',
+          lt:      '#e8a96a',
+        },
+      },
+      boxShadow: {
+        'glow-accent':    '0 0 14px rgba(201,122,58,0.55), 0 0 28px rgba(201,122,58,0.28)',
+        'glow-accent-sm': '0 0 8px rgba(201,122,58,0.50), 0 0 16px rgba(201,122,58,0.25)',
+      },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans:    ['Merriweather', 'Georgia', 'serif'],
+        primary: ['Merriweather', 'Georgia', 'serif'],
+        accent:  ['Cormorant Garamond', 'Georgia', 'serif'],
       },
       keyframes: {
         marquee: {
-          '0%': { transform: 'translateX(0%)' },
+          '0%':   { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        fadeIn: {
+          '0%':   { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeUp: {
+          '0%':   { opacity: '0', transform: 'translateY(24px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeLeft: {
+          '0%':   { opacity: '0', transform: 'translateX(-24px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
         },
       },
       animation: {
-        marquee: 'marquee 18s linear infinite',
+        marquee:      'marquee 18s linear infinite',
+        'fade-in':    'fadeIn 0.7s ease both',
+        'fade-up':    'fadeUp 0.7s ease both',
+        'fade-left':  'fadeLeft 0.7s ease both',
+        'fade-up-2':  'fadeUp 0.7s 0.15s ease both',
+        'fade-up-3':  'fadeUp 0.7s 0.3s ease both',
+        'fade-up-4':  'fadeUp 0.7s 0.45s ease both',
+        'fade-up-5':  'fadeUp 0.7s 0.6s ease both',
       },
     },
   },
   plugins: [],
 }
-

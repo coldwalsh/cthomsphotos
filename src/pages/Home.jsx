@@ -2,56 +2,91 @@ import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
+const marqueeItems = [
+  'Relive Your Best Moments',
+  '[◉°]',
+  'Places, People & Stories',
+  '[◉°]',
+  'Charlottesville & Beyond',
+  '[◉°]',
+  'Available for Hire',
+  '[◉°]',
+  'Adventure Photography',
+  '[◉°]',
+]
+
+// Duplicate for seamless loop
+const marqueeLoop = [...marqueeItems, ...marqueeItems]
+
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen animate-fade-in">
       <Header transparent />
 
-      {/* Hero — full-viewport video background */}
       <section className="relative w-full h-screen overflow-hidden">
+        {/* Video */}
         <video
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay
           muted
           loop
           playsInline
-          /* Drop your hero video into public/hero.mp4 */
-          src="/hero.mp4"
+          src={`${import.meta.env.BASE_URL}hero.mp4`}
         />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/30" />
 
-        {/* Centre CTA */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full gap-6">
+        {/* Gradient overlay — darker at bottom to anchor the marquee */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/20 to-black/60" />
+
+        {/* Centre content */}
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-5">
+          <p className="text-white/60 text-xs tracking-[0.3em] uppercase font-primary">
+            Photos by Christian Thompson
+          </p>
           <Link
             to="/portfolio"
-            className="px-10 py-3 bg-white/80 backdrop-blur-sm text-sm tracking-widest font-medium text-gray-900 hover:bg-white transition-colors"
+            className="mt-1 px-9 py-2.5 border border-white/60 text-white text-xs tracking-[0.25em] uppercase hover:bg-white hover:text-gray-900 transition-all duration-300 font-primary backdrop-blur-sm"
           >
-            PORTFOLIO
+            View Portfolio
           </Link>
         </div>
 
-        {/* Bottom corner labels */}
-        <div className="absolute bottom-8 left-8 z-10">
-          <Link to="/about" className="text-white/80 text-xs tracking-widest hover:text-white transition-colors">
-            ABOUT ME
+        {/* Corner links — desktop only */}
+        <div className="hidden md:block absolute bottom-24 left-8 z-20">
+          <Link
+            to="/about"
+            className="text-white/60 text-[10px] tracking-[0.2em] uppercase hover:text-accent-lt transition-colors font-primary"
+          >
+            About Me
           </Link>
         </div>
-        <div className="absolute bottom-8 right-8 z-10">
-          <Link to="/contact" className="text-white/80 text-xs tracking-widest hover:text-white transition-colors">
-            CONTACT AND SCHEDULING
+        <div className="hidden md:block absolute bottom-24 right-8 z-20">
+          <Link
+            to="/contact"
+            className="text-white/60 text-[10px] tracking-[0.2em] uppercase hover:text-accent-lt transition-colors font-primary"
+          >
+            Contact &amp; Scheduling
           </Link>
         </div>
 
-        {/* Scrolling marquee text */}
-        <div className="absolute bottom-0 left-0 right-0 overflow-hidden z-10 py-3 pointer-events-none">
-          <div className="flex whitespace-nowrap animate-marquee">
-            {[...Array(6)].map((_, i) => (
+        {/* Marquee — anchored to the bottom, fades in from above */}
+        <div
+          className="absolute bottom-0 left-0 right-0 z-10 overflow-hidden pointer-events-none"
+          style={{
+            maskImage: 'linear-gradient(to bottom, transparent 0%, black 40%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 40%)',
+          }}
+        >
+          <div className="flex whitespace-nowrap animate-marquee items-center py-8">
+            {marqueeLoop.map((item, i) => (
               <span
                 key={i}
-                className="text-5xl font-light text-white mr-16 select-none"
+                className={`select-none mr-8 ${
+                  item === '✦'
+                    ? 'text-sm text-white/40'
+                    : 'font-primary text-sm tracking-[0.18em] uppercase font-light text-white/80'
+                }`}
               >
-                Relive Your Best Moments
+                {item}
               </span>
             ))}
           </div>

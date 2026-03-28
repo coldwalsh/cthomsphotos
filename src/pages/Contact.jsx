@@ -22,15 +22,15 @@ export default function Contact() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen animate-fade-in">
       <Header />
 
-      <main className="flex-1 bg-gray-100 pt-20">
-        <div className="max-w-5xl mx-auto px-8 py-20">
+      <main className="flex-1 bg-primary pt-20">
+        <div className="max-w-5xl mx-auto px-5 md:px-8 py-10 md:py-20">
           <div className="flex flex-col md:flex-row gap-16 items-start">
             {/* Left */}
             <div className="w-full md:w-2/5">
-              <h1 className="text-5xl font-light tracking-tight mb-6">Contact Me</h1>
+              <h1 className="text-5xl font-light tracking-tight mb-6 text-accent-lt">Contact Me</h1>
               <p className="text-gray-700 leading-relaxed mb-6">
                 Let me know what kind of pictures you would like me to take and what
                 times you are available, and we can go from there!
@@ -137,7 +137,7 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="px-8 py-3 bg-black text-white text-sm tracking-widest hover:bg-gray-800 transition-colors"
+                    className="px-8 py-3 inline-block border border-accent text-accent text-xs tracking-[0.25em] uppercase hover:bg-accent hover:text-white transition-all duration-300 font-primary"
                   >
                     SEND
                   </button>
