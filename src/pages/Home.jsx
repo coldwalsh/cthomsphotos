@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -19,6 +20,15 @@ const marqueeItems = [
 const marqueeLoop = [...marqueeItems, ...marqueeItems]
 
 export default function Home() {
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    v.muted = true
+    v.play().catch(() => {})
+  }, [])
+
   return (
     <div className="flex flex-col min-h-screen animate-fade-in">
       <Header transparent />
@@ -26,11 +36,13 @@ export default function Home() {
       <section className="relative w-full h-screen overflow-hidden">
         {/* Video */}
         <video
+          ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
           src={`${import.meta.env.BASE_URL}hero.mp4`}
         />
 
