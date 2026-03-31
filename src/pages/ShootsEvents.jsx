@@ -1,15 +1,12 @@
 import GalleryPage from '../components/GalleryPage'
 
-const base = import.meta.env.BASE_URL
+const photoModules = import.meta.glob(
+  '../assets/photos/events/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
+  { eager: true }
+)
+const photos = Object.values(photoModules).map(m => m.default)
 
-/*
-  Add photo paths here once you have images, e.g.:
-  const photos = [
-    `${base}photos/shoots/img1.jpg`,
-    `${base}photos/shoots/img2.jpg`,
-  ]
-*/
-const photos = []
+const base = import.meta.env.BASE_URL
 
 export default function ShootsEvents() {
   return (

@@ -61,3 +61,16 @@ body {
 .hover\:text-accent-lt:hover  { color: var(--color-accent-lt); }
 .hover\:bg-accent:hover       { background-color: var(--color-accent); }
 .hover\:border-accent:hover   { border-color: var(--color-accent); }
+
+/* ── Coming soon placeholder tiles ── */
+.coming-soon-tile { display: none; }
+@media (min-width: 768px) {
+  .coming-soon-tile { display: flex; align-items: center; justify-content: center; }
+}
+.coming-soon-text {
+  color: white !important;
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 0.875rem;
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
