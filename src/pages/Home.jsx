@@ -109,7 +109,7 @@ export default function Home() {
             WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 40%)',
           }}
         >
-          <div className="flex whitespace-nowrap animate-marquee items-center py-8">
+          <div className="flex whitespace-nowrap animate-marquee items-center py-8" style={{ willChange: 'transform' }}>
             {marqueeLoop.map((item, i) => (
               <span
                 key={i}
