@@ -57,11 +57,11 @@ export default function GalleryPage({ title, description, heroCover, photos = []
 
   return (
     <div className="flex flex-col min-h-screen animate-fade-in">
-      <Header />
+      <Header transparent />
 
-      <main className="flex-1 pt-16">
+      <main className="flex-1">
         {/* ── Hero slideshow ── */}
-        <div className="relative w-full h-[70vh] overflow-hidden bg-black">
+        <div className="relative w-full h-dvh overflow-hidden bg-black">
           <img
             src={heroPhotos[heroIndex]}
             alt={title}
@@ -73,7 +73,7 @@ export default function GalleryPage({ title, description, heroCover, photos = []
           {/* Back arrow */}
           <Link
             to="/portfolio"
-            className="absolute top-6 left-6 z-20 flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm tracking-wide"
+            className="absolute top-20 left-6 z-20 flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm tracking-wide"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
               <path d="M19 12H5M12 5l-7 7 7 7" />
@@ -101,6 +101,11 @@ export default function GalleryPage({ title, description, heroCover, photos = []
               <p className="text-white/80 text-sm md:text-base leading-relaxed">{description}</p>
             )}
           </div>
+
+          {/* Scroll down hint */}
+          <div className="absolute bottom-8 right-8 z-10 text-white/40 text-xs font-primary tracking-widest hidden md:block">
+            Scroll ↓ for gallery
+          </div>
         </div>
 
         {/* ── Photo grids ── */}
@@ -118,7 +123,7 @@ export default function GalleryPage({ title, description, heroCover, photos = []
                 const placeholders = landscapes.length % 3 === 0 ? 0 : 3 - (landscapes.length % 3)
                 return landscapes.length > 0 && (
                   <div className="space-y-4">
-                    <h2 className="text-5xl text-center pb-7 font-accent text-bold text-accent">Landscapes</h2>
+                    <h2 className="text-3xl md:text-4xl text-center pb-7 font-accent text-bold text-accent">Landscapes</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
                       {landscapes.map((src, i) => (
                         <div
@@ -149,7 +154,7 @@ export default function GalleryPage({ title, description, heroCover, photos = []
                 const placeholders = portraits.length % 4 === 0 ? 0 : 4 - (portraits.length % 4)
                 return portraits.length > 0 && (
                   <div className="space-y-4">
-                    <h2 className="text-5xl italic text-center py-7 font-accent text-bold text-accent">Portraits</h2>
+                    <h2 className="text-3xl md:text-4xl text-center py-7 font-accent text-bold text-accent">Portraits</h2>
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-3">
                       {portraits.map((src, i) => (
                         <div

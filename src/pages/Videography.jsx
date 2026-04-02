@@ -87,7 +87,7 @@ export default function Videography() {
           {/* Title */}
           <div className="absolute bottom-20 left-8 z-10 pointer-events-none">
             <h1 className="text-3xl md:text-5xl font-light text-white mb-2">Videography</h1>
-            <p className="text-white/70 text-sm md:text-base">Motion stories captured on film.</p>
+            <p className="text-white/70 text-sm md:text-base">Stories captured in motion.</p>
           </div>
 
           {/* Dot indicators */}
@@ -133,7 +133,7 @@ export default function Videography() {
 
         {/* ── Video gallery ── */}
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-14">
-          <h2 className="text-5xl italic text-center pb-7 font-accent text-bold text-accent">Videos</h2>
+          <h2 className="text-3xl md:text-4xl text-center pb-7 font-accent text-bold text-accent">Videos</h2>
           {videos.length === 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
               {Array.from({ length: 6 }).map((_, i) => (
@@ -176,19 +176,19 @@ export default function Videography() {
         {/* ── Page navigation ── */}
         <div className="flex justify-between items-center px-6 md:px-12 py-8 border-t border-gray-200 max-w-7xl mx-auto w-full">
           <Link
-            to="/portfolio/captured-moments"
+            to="/portfolio/places"
             className="flex items-center gap-2 text-sm tracking-[0.15em] uppercase text-muted hover:text-accent transition-colors font-primary"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
               <path d="M19 12H5M12 5l-7 7 7 7" />
             </svg>
-            Captured Moments
+            Places
           </Link>
           <Link
-            to="/portfolio/places"
+            to="/portfolio/shoots-events"
             className="flex items-center gap-2 text-sm tracking-[0.15em] uppercase text-muted hover:text-accent transition-colors font-primary"
           >
-            Places
+            Shoots & Events
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>

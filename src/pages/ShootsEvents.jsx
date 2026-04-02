@@ -15,6 +15,8 @@ export default function ShootsEvents() {
       description="Personal shoots, group sessions, and live events."
       heroCover={`${base}photos/shoots-events-cover.jpg`}
       photos={photos}
+      prevPage={{ label: 'Videography', to: '/portfolio/videography' }}
+      nextPage={{ label: 'Captured Moments', to: '/portfolio/captured-moments' }}
     />
   )
 }

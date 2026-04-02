@@ -82,13 +82,13 @@ export default function Header({ transparent = false }) {
 
       {/* Mobile dropdown menu */}
       {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-gray-600 flex flex-col items-center py-8 gap-6 border-t border-gray-500 shadow-lg">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-black/20 backdrop-blur-md flex flex-col items-center py-8 gap-5 border-t border-white/20 shadow-lg">
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
               onClick={() => setMenuOpen(false)}
-              className="text-accent-lt text-lg font-light tracking-[0.2em] uppercase font-primary hover:text-white transition-colors"
+              className="text-white text-md tracking-[0.25em] uppercase font-primary transition-all duration-300 hover:[text-shadow:0_0_12px_rgba(255,255,255,0.9),0_0_24px_rgba(255,255,255,0.5)]"
             >
               {link.label}
             </Link>

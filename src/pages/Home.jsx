@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -20,36 +19,6 @@ const marqueeItems = [
 const marqueeLoop = [...marqueeItems, ...marqueeItems]
 
 export default function Home() {
-  const videoRef = useRef(null)
-
-  useEffect(() => {
-    const v = videoRef.current
-    if (!v) return
-
-    const mq = window.matchMedia('(max-width: 767px)')
-
-    function swapSrc(mobile) {
-      const next = mobile
-        ? `${import.meta.env.BASE_URL}hero-mobile.mp4`
-        : `${import.meta.env.BASE_URL}hero.mp4`
-      const current = v.src.split('/').pop()
-      const target = next.split('/').pop()
-      if (current !== target) {
-        v.src = next
-        v.load()
-        v.play().catch(() => {})
-      }
-    }
-
-    v.muted = true
-    swapSrc(mq.matches)
-    v.play().catch(() => {})
-
-    const handler = (e) => swapSrc(e.matches)
-    mq.addEventListener('change', handler)
-    return () => mq.removeEventListener('change', handler)
-  }, [])
-
   return (
     <div className="flex flex-col min-h-screen animate-fade-in">
       <Header transparent />
@@ -57,22 +26,21 @@ export default function Home() {
       <section className="relative w-full h-dvh overflow-hidden">
         {/* Video — object-fit cover ensures it always fills the viewport with no black bars */}
         <video
-          ref={videoRef}
+          src={`${import.meta.env.BASE_URL}hero.mp4`}
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          poster={`${import.meta.env.BASE_URL}photos/home-cover.jpg`}
         />
 
         {/* Gradient overlay — darker at bottom to anchor the marquee */}
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/20 via-black/20 to-black/60" />
 
         {/* Centre content */}
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-5">
-          <p className="text-white/70 text-[0.75rem] tracking-[0.3em] uppercase font-primary">
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center mt-8 ml-2 gap-5">
+          <p className="text-white/70 text-[0.73rem] tracking-[0.3em] uppercase font-primary">
             Photos by Christian Thompson
           </p>
           <Link
@@ -87,7 +55,7 @@ export default function Home() {
         <div className="hidden md:block absolute bottom-24 left-8 z-30">
           <Link
             to="/about"
-            className="text-white/60 lg:text-[12px] md:text-[10px] tracking-[0.2em] uppercase hover:text-accent-lt transition-colors font-primary"
+            className="text-white/70 lg:text-[12px] md:text-[10px] tracking-[0.2em] uppercase hover:text-accent-lt transition-colors font-primary"
           >
             About Me
           </Link>
@@ -95,7 +63,7 @@ export default function Home() {
         <div className="hidden md:block absolute bottom-24 right-8 z-30">
           <Link
             to="/contact"
-            className="text-white/60 lg:text-[12px] md:text-[10px] tracking-[0.2em] uppercase hover:text-accent-lt transition-colors font-primary"
+            className="text-white/70 lg:text-[12px] md:text-[10px] tracking-[0.2em] uppercase hover:text-accent-lt transition-colors font-primary"
           >
             Contact &amp; Scheduling
           </Link>

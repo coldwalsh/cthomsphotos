@@ -15,8 +15,8 @@ export default function CapturedMoments() {
       description="Candid, unposed moments that tell a story."
       heroCover={`${base}photos/captured-moments-cover.jpg`}
       photos={photos}
-      prevPage={{ label: 'Places', to: '/portfolio/places' }}
-      nextPage={{ label: 'Videography', to: '/portfolio/videography' }}
+      prevPage={{ label: 'Shoots & Events', to: '/portfolio/shoots-events' }}
+      nextPage={{ label: 'Places', to: '/portfolio/places' }}
     />
   )
 }
