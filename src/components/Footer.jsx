@@ -6,15 +6,15 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <h2 className="text-2xl font-light mb-2">
-            Photos by 
-            <span className="font-light text-accent-lt font-accent italic text-3xl"> Christian Thompson</span>
-            </h2>
+            Photos by<br className="mobile-only" />
+            <span className="font-light text-accent-lt font-accent text-3xl"> Christian Thompson</span>
+          </h2>
           <p className="text-gray-300 text-sm">Made with love</p>
         </div>
 
         {/* Location */}
         <div>
-          <h3 className="text-3xl italic font-accent text-accent-lt font-light mb-2">Location</h3>
+          <h3 className="text-3xl font-accent text-accent-lt font-light mb-2">Location</h3>
           <p className="text-gray-300 text-sm">35 University Cir</p>
           <p className="text-gray-300 text-sm">Charlottesville, VA 22903</p>
         </div>
@@ -22,7 +22,7 @@ export default function Footer() {
         {/* Contact */}
         <div>
           <Link to="/contact">
-              <h3 className="italic font-accent hover:text-gray-300 text-3xl text-accent-lt font-light mb-2">Contact</h3>
+              <h3 className="font-accent hover:text-gray-300 text-3xl text-accent-lt font-light mb-2">Contact</h3>
           </Link>
           <p className="text-gray-300 text-sm">william.christian.thompson@gmail.com</p>
           <p className="text-gray-300 text-sm">+1 (540) 613-7884</p>

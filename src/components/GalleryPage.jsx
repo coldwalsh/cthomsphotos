@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
 
-export default function GalleryPage({ title, description, heroCover, photos = [] }) {
+export default function GalleryPage({ title, description, heroCover, photos = [], prevPage, nextPage }) {
   const [heroIndex, setHeroIndex] = useState(0)
   const [lightbox, setLightbox] = useState(null)
   const [fade, setFade] = useState(true)
@@ -118,7 +118,7 @@ export default function GalleryPage({ title, description, heroCover, photos = []
                 const placeholders = landscapes.length % 3 === 0 ? 0 : 3 - (landscapes.length % 3)
                 return landscapes.length > 0 && (
                   <div className="space-y-4">
-                    <h2 className="text-5xl italic text-center pb-7 font-accent text-bold text-accent">Landscapes</h2>
+                    <h2 className="text-5xl text-center pb-7 font-accent text-bold text-accent">Landscapes</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
                       {landscapes.map((src, i) => (
                         <div
@@ -176,6 +176,33 @@ export default function GalleryPage({ title, description, heroCover, photos = []
             </>
           )}
         </div>
+        {/* ── Page navigation ── */}
+        {(prevPage || nextPage) && (
+          <div className="flex justify-between items-center px-6 md:px-12 py-8 border-t border-gray-200 max-w-7xl mx-auto w-full">
+            {prevPage ? (
+              <Link
+                to={prevPage.to}
+                className="flex items-center gap-2 text-sm tracking-[0.15em] uppercase text-muted hover:text-accent transition-colors font-primary"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                  <path d="M19 12H5M12 5l-7 7 7 7" />
+                </svg>
+                {prevPage.label}
+              </Link>
+            ) : <span />}
+            {nextPage ? (
+              <Link
+                to={nextPage.to}
+                className="flex items-center gap-2 text-sm tracking-[0.15em] uppercase text-muted hover:text-accent transition-colors font-primary"
+              >
+                {nextPage.label}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </Link>
+            ) : <span />}
+          </div>
+        )}
       </main>
 
       <Footer />

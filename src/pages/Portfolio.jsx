@@ -35,16 +35,22 @@ const categories = [
     photos: shuffle(Object.values(placesModules).map(m => m.default)),
   },
   {
-    label: 'Captured Moments',
-    to: '/portfolio/captured-moments',
-    cover: `${base}photos/moments-cover.jpg`,
-    photos: shuffle(Object.values(momentsModules).map(m => m.default)),
+    label: 'Videography',
+    to: '/portfolio/videography',
+    cover: `${base}portfolio-cover.jpg`,
+    photos: [],
   },
   {
     label: 'Shoots & Events',
     to: '/portfolio/shoots-events',
     cover: `${base}photos/events-cover.jpg`,
     photos: shuffle(Object.values(eventsModules).map(m => m.default)),
+  },
+  {
+    label: 'Captured Moments',
+    to: '/portfolio/captured-moments',
+    cover: `${base}photos/moments-cover.jpg`,
+    photos: shuffle(Object.values(momentsModules).map(m => m.default)),
   },
 ]
 
@@ -94,7 +100,7 @@ export default function Portfolio() {
     intervalRef.current = setInterval(() => {
       crossfadeTo.current(hovered.photos[idx])
       idx = (idx + 1) % hovered.photos.length
-    }, 2000)
+    }, 1500)
     return () => clearInterval(intervalRef.current)
   }, [hovered])
 

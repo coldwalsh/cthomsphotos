@@ -25,9 +25,9 @@ export default {
         'glow-accent-sm': '0 0 8px rgba(201,122,58,0.50), 0 0 16px rgba(201,122,58,0.25)',
       },
       fontFamily: {
-        sans:    ['Merriweather', 'Georgia', 'serif'],
-        primary: ['Merriweather', 'Georgia', 'serif'],
-        accent:  ['Cormorant Garamond', 'Georgia', 'serif'],
+        sans:    ['Arsenal SC', 'sans-serif'],
+        primary: ['Arsenal SC', 'sans-serif'],
+        accent:  ['Playfair Display', 'Georgia', 'serif'],
       },
       keyframes: {
         marquee: {
@@ -46,6 +46,10 @@ export default {
           '0%':   { opacity: '0', transform: 'translateX(-24px)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
         },
+        bounceX: {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '50%':      { transform: 'translateX(6px)' },
+        },
       },
       animation: {
         marquee:      'marquee 18s linear infinite',
@@ -56,6 +60,7 @@ export default {
         'fade-up-3':  'fadeUp 0.7s 0.3s ease both',
         'fade-up-4':  'fadeUp 0.7s 0.45s ease both',
         'fade-up-5':  'fadeUp 0.7s 0.6s ease both',
+        'bounce-x':   'bounceX 1s ease-in-out infinite',
       },
     },
   },

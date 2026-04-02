@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -27,26 +27,26 @@
 }
 
 body {
-  font-family: 'Merriweather', Georgia, serif;
+  font-family: 'Arsenal SC', sans-serif;
   background: var(--color-bg);
   color: var(--color-text);
 }
 
 /* ── Typography utility classes ── */
 
-/* Primary serif — Merriweather */
+/* Primary sans — Arsenal SC */
 .font-primary {
-  font-family: 'Merriweather', Georgia, serif;
+  font-family: 'Arsenal SC', sans-serif;
 }
 
-/* Accent serif — Cormorant Garamond */
+/* Accent serif — Playfair Display */
 .font-accent {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
 /* Accent italic */
 .font-accent-italic {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
 }
 
@@ -62,6 +62,10 @@ body {
 .hover\:bg-accent:hover       { background-color: var(--color-accent); }
 .hover\:border-accent:hover   { border-color: var(--color-accent); }
 
+/* ── Hide scrollbar utility ── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 /* ── Coming soon placeholder tiles ── */
 .coming-soon-tile { display: none; }
 @media (min-width: 768px) {
@@ -69,8 +73,15 @@ body {
 }
 .coming-soon-text {
   color: white !important;
-  font-family: 'Merriweather', Georgia, serif;
+  font-family: 'Arsenal SC', sans-serif;
   font-size: 0.875rem;
   font-style: italic;
   letter-spacing: 0.05em;
+}
+
+/* Hide the break on desktop (screens wider than 768px) */
+@media (min-width: 769px) {
+  .mobile-only {
+    display: none;
+  }
 }

@@ -15,6 +15,8 @@ export default function Places() {
       description="Landscapes and destinations captured through the lens."
       heroCover={`${base}photos/places-cover.jpg`}
       photos={photos}
+      nextPage={{ label: 'Captured Moments', to: '/portfolio/captured-moments' }}
+      prevPage={{ label: 'Videography', to: '/portfolio/videography' }}
     />
   )
 }

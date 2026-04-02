@@ -64,6 +64,7 @@ export default function Home() {
           loop
           playsInline
           preload="auto"
+          poster={`${import.meta.env.BASE_URL}photos/home-cover.jpg`}
         />
 
         {/* Gradient overlay — darker at bottom to anchor the marquee */}
@@ -71,7 +72,7 @@ export default function Home() {
 
         {/* Centre content */}
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-5">
-          <p className="text-white/60 text-xs tracking-[0.3em] uppercase font-primary">
+          <p className="text-white/70 text-[0.75rem] tracking-[0.3em] uppercase font-primary">
             Photos by Christian Thompson
           </p>
           <Link

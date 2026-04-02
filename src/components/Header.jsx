@@ -34,7 +34,7 @@ export default function Header({ transparent = false }) {
             <Link
               key={link.to}
               to={link.to}
-              className={`text-sm tracking-wide transition-colors ${linkClass} ${active ? activeBorder : ''}`}
+              className={`text-[1.1rem] tracking-wide transition-colors ${linkClass} ${active ? activeBorder : ''}`}
             >
               {link.label}
             </Link>
@@ -46,7 +46,7 @@ export default function Header({ transparent = false }) {
       <Link
         to="/"
         onClick={() => setMenuOpen(false)}
-        className={`absolute left-1/2 -translate-x-1/2 text-base md:text-lg font-medium tracking-wide whitespace-nowrap ${
+        className={`absolute left-1/2 -translate-x-1/2 text-base md:text-[1.5rem] font-medium tracking-wide whitespace-nowrap ${
           transparent ? 'text-white' : 'text-gray-900'
         }`}
       >
@@ -61,7 +61,7 @@ export default function Header({ transparent = false }) {
             <Link
               key={link.to}
               to={link.to}
-              className={`text-sm tracking-wide transition-colors ${linkClass} ${active ? activeBorder : ''}`}
+              className={`text-[1.1rem] tracking-wide transition-colors ${linkClass} ${active ? activeBorder : ''}`}
             >
               {link.label}
             </Link>
