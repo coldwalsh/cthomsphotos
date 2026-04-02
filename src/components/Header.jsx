@@ -46,7 +46,7 @@ export default function Header({ transparent = false }) {
       <Link
         to="/"
         onClick={() => setMenuOpen(false)}
-        className={`absolute left-1/2 -translate-x-1/2 text-base md:text-[1.5rem] font-medium tracking-wide whitespace-nowrap ${
+        className={`absolute left-1/2 -translate-x-1/2 text-[1.3rem] md:text-[1.5] font-medium tracking-wide whitespace-nowrap ${
           transparent ? 'text-white' : 'text-gray-900'
         }`}
       >
@@ -75,20 +75,20 @@ export default function Header({ transparent = false }) {
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle menu"
       >
-        <span className={`block w-6 h-px transition-all duration-300 origin-center ${transparent || menuOpen ? 'bg-white' : 'bg-gray-800'} ${menuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-        <span className={`block w-6 h-px transition-all duration-300 ${transparent || menuOpen ? 'bg-white' : 'bg-gray-800'} ${menuOpen ? 'opacity-0' : ''}`} />
-        <span className={`block w-6 h-px transition-all duration-300 origin-center ${transparent || menuOpen ? 'bg-white' : 'bg-gray-800'} ${menuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+        <span className={`block w-6 h-px transition-all duration-300 origin-center ${transparent ? 'bg-white' : 'bg-gray-800'} ${menuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+        <span className={`block w-6 h-px transition-all duration-300 ${transparent ? 'bg-white' : 'bg-gray-800'} ${menuOpen ? 'opacity-0' : ''}`} />
+        <span className={`block w-6 h-px transition-all duration-300 origin-center ${transparent ? 'bg-white' : 'bg-gray-800'} ${menuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
       </button>
 
       {/* Mobile dropdown menu */}
       {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-black/20 backdrop-blur-md flex flex-col items-center py-8 gap-5 border-t border-white/20 shadow-lg">
+        <div className={`md:hidden absolute top-full left-0 right-0 backdrop-blur-md flex flex-col items-center py-8 gap-5 shadow-lg ${transparent ? 'bg-white/10 border-t border-white/20' : 'bg-white border-t border-gray-200'}`}>
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
               onClick={() => setMenuOpen(false)}
-              className="text-white text-md tracking-[0.25em] uppercase font-primary transition-all duration-300 hover:[text-shadow:0_0_12px_rgba(255,255,255,0.9),0_0_24px_rgba(255,255,255,0.5)]"
+              className={`text-md tracking-[0.25em] uppercase font-primary transition-all duration-300 ${transparent ? 'text-white hover:[text-shadow:0_0_12px_rgba(255,255,255,0.9),0_0_24px_rgba(255,255,255,0.5)]' : 'text-gray-800 hover:[text-shadow:0_0_8px_rgba(0,0,0,0.4),0_0_16px_rgba(0,0,0,0.2)]'}`}
             >
               {link.label}
             </Link>

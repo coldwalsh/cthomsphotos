@@ -29,7 +29,7 @@ export default function About() {
               </div>
 
               {/* Italic tagline under photo */}
-              <p className="mt-6 text-center font-accent italic text-accent text-xl font-light animate-fade-up-2">
+              <p className="mt-6 text-center font-accent text-accent text-xl font-light animate-fade-up-2">
                   3+ Years of Professional Photography
               </p>
             </div>
@@ -64,7 +64,7 @@ export default function About() {
 
                 {/* Pull quote */}
                 <blockquote className="border-l-2 border-accent pl-5 py-1 animate-fade-up-3">
-                  <p className="font-accent italic text-2xl text-earth-text font-light leading-snug">
+                  <p className="font-accent text-2xl text-earth-text font-light leading-snug">
                     "Reliving the most special moments requires an eye 
                     for framing the subject while conveying emotion and realism."
                   </p>
