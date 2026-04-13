@@ -40,7 +40,7 @@ export default function Contact() {
 
               {/* Instagram icon */}
               <a
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/christian_tri202/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
